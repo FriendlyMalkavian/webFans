@@ -1,0 +1,83 @@
+@import '../../consts.scss';
+
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    display: block;
+
+    height: 100vh;
+    background-color: $theme-layer-back-color;
+}
+
+.swiper-wrapper {
+    will-change: transform;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: block;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.slider-layer {
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    will-change: transform;
+}
+
+.swiper-slide-active, .swiper-slide-visible, .swiper-slide-next, .swiper-slide-prev {
+    overflow: hidden;
+}
+
+.constellation {
+    position: absolute;
+    z-index: 6;
+    fill: none;
+    overflow: hidden;
+
+    will-change: transform;
+}
+
+.constellation-stars {
+    fill: $theme-text-color-login-page;
+}
+
+.constellation-path {
+    stroke: $theme-text-color-login-page;
+}
+
+.succsess-message {
+    position: absolute;
+    top: 5%;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
+    min-height: 40px;
+    font-size: 20px;
+    font-family: 'Junge', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $theme-text-color-login-page;
+    opacity: 0;
+    z-index: 6;
+}

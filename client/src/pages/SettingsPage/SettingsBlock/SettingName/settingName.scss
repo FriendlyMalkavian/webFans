@@ -1,0 +1,22 @@
+@import '../../../../consts.scss';
+.setting-name-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    padding: 5% 0 5% 7%;
+    grid-area: A;
+    border: none;
+}
+
+.setting-name {
+    font-size: 40px;
+}
+
+.setting-name-description {
+    font-size: 14px;
+}
+
+.setting-name-description, .setting-name {
+    font-family: 'Laila', sans-serif;
+    color: $theme-text-color;
+}

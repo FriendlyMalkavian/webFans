@@ -1,0 +1,18 @@
+@import '../searchBar.scss';
+
+.search-icon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    fill: none;
+    top: 50%;
+    transform: translate3d(8px, -50%, 0px);
+
+    z-index: 3;
+}
+
+.magnifier {
+    stroke: $theme-hover;
+    stroke-width: 0.5px;
+    transition: $transition-effect;
+}

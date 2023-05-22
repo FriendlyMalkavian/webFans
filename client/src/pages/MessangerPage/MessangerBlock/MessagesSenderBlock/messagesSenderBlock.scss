@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@400&display=swap');
+@import '../../../modules/header/header.scss';
+@import '../../../../consts.scss';
+
+.messages-sender-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    background-color: $theme-almost-black-white-color;
+    border-top: 1px solid $theme-dim-border;
+    padding: 0px 10% 0px 10%;
+}
+
+.send-messages-input-wrapper {
+    width: 60%;
+    height: 30px;
+    padding: 0px 20px 0px 10px;
+}
+
+.enlarge-input-wrapper {
+    height: 60px;
+}
+
+.send-messages-input {
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+    background-color: $theme-dark-hover;
+    border: none;
+    border-right: 0px transparent;
+    border-left: 0px transparent;
+    transition: $transition-effect;
+
+    font-size: 15px;
+    font-family: 'Laila', sans-serif;
+
+    user-select: none;
+    outline: none;
+    color: $theme-text-color;
+    resize: none;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $theme-scrollbar-thumb;
+        border-radius: 3px;
+        border: none;
+    }
+    &::-webkit-scrollbar-track {
+        background: $theme-scrollbar-thumb;
+    }
+    &:hover, &:focus-within {
+        transition: $transition-effect;
+        border-right: 1px solid $theme-dim-border;
+        border-left: 1px solid $theme-dim-border;
+    }
+}
+
+.send-message-button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-right: 1px solid $theme-dim-border;
+    border-left: 1px solid $theme-dim-border;
+    background-color: $theme-header-color;
+    transition: $transition-effect;
+    color: $theme-text-color;
+
+    &:hover {
+        transition: $transition-effect;
+        background-color: $theme-dim-hover;
+        border-color: $theme-border-color;
+    }
+    &:active {
+        transition: $transition-effect;
+        background-color: $theme-dim-border;
+        border-color: $theme-border-particle;
+    }
+}

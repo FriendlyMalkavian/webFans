@@ -1,0 +1,16 @@
+@keyframes showShadowBlock { 100% { opacity: 1; } }
+
+.shadow-block {
+    position: fixed;
+    background-color: #000000ab;
+    opacity: 0;
+    z-index: -100;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.shadow-active {
+    z-index: 100;
+    animation: showShadowBlock 0.5s;
+}

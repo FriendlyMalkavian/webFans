@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@500&display=swap');
+@import '../../../../header.scss';
+
+@keyframes spinGear { 100% { transform: translate3d(7px, -50%, 0px) rotateZ(-180deg); } }
+@keyframes showLogout { 100% { transform: translateX(3px); } }
+
+.manage-button {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    color: $theme-text-color;
+    height: 35px;
+    padding-left: 15%;
+    border-radius: 3px;
+
+    font-size: 13px;
+    font-family: 'Laila', sans-serif;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: capitalize;
+
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+
+    will-change: height;
+
+    &:hover {
+        transition: $transition-effect;
+        background-color: #85858580;
+
+        .gear {
+            animation: spinGear .5s  infinite;
+        }
+
+        .logout-arrow {
+            animation: showLogout 0.4s infinite alternate;
+        }
+    }
+}
+
+.gear, .menu-logout-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(7px, -50%, 0px);
+    width: 16px;
+    height: 16px;
+    fill: none;
+}
+
+.gear {
+    > .active-gear {
+        fill: $theme-text-color;
+    }
+    > .active-cirlce {
+        stroke: $theme-text-color;
+    }
+}
+
+.menu-logout-icon {
+    width: 23px;
+    transform: translate3d(6px, -50%, 0px);
+    > .logout-arrow, > .logout-door {
+        fill: $theme-text-color;
+    }
+}

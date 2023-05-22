@@ -1,0 +1,13 @@
+.header-logo {
+    display: block;
+    grid-area: HEADER_LOGO;
+    width: 60%;
+    height: 100%;
+    justify-self: left;
+    color: rgb(224, 224, 224);
+    text-align: center;
+
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+}

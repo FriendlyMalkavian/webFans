@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Junge&display=swap');
+@import '../../../../consts.scss';
+
+$background-texture: url('../../../../assets/textures/PaperFibers.webp');
+$width: clamp(300px, 40vw, 400px);
+$height: clamp(350px, 60vh, 800px);
+$halfOfHeight: calc($height/2);
+
+@keyframes textShadow { 100% { text-shadow: 0px 0px 4px; } }
+@keyframes upDownAnim { 100% { transform: translateY($halfOfHeight); } }
+@keyframes downUpAnim { 100% { transform: translateY(calc(-1 * $halfOfHeight)); } }
+
+.layer-middle-front {
+    z-index: 3;
+    width: $width !important;
+    height: $height !important;
+    background-color: $theme-layer-front-color;
+    top: 50% !important;
+    left: 50% !important;
+    translate: (-50% -50%);
+    background-image: $background-texture;
+    border: 1px solid $theme-border-color;
+}
+
+.particle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: $theme-border-particle;
+    box-shadow: 0px 0px 2px 1px $theme-border-color;
+    will-change: transform;
+}
+
+.right-top-praticle {
+    right: -1px;
+    top: calc(50% - 1px);
+    animation: upDownAnim 1.5s infinite alternate;
+}
+.right-bottom-praticle {
+    right: -1px;
+    bottom: calc(50% - 1px);
+    animation: downUpAnim 1.5s infinite alternate;
+}
+.left-top-praticle {
+    left: -1px;
+    top: calc(50% - 1px);
+    animation: upDownAnim 1.5s infinite alternate;
+}
+.left-bottom-praticle {
+    left: -1px;
+    bottom: calc(50% - 1px);
+    animation: downUpAnim 1.5s infinite alternate;
+}
+
+.login-title {
+    position: absolute;
+    left: 50%;
+    top: 4.5%;
+    transform: translate(-50%);
+    color: $theme-border-particle;
+
+    font-size: 32px;
+    font-family: 'Junge', serif;
+    letter-spacing: 2px;
+    animation: textShadow 0.5s none 1s;
+
+    user-select: none;
+}

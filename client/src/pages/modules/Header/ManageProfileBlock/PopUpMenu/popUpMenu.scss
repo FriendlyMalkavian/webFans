@@ -1,0 +1,29 @@
+@import '../../header.scss';
+.pop-up-menu {
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    background-color: $theme-dark-hover;
+    display: flex;
+    height: 230px;
+    width: 250px;
+    flex-flow: column;
+}
+
+.pop-up-hide {
+    display: none;
+}
+
+.pop-up-show {
+    display: flex;
+}
+
+
+.mini-profile-block {
+    height: 100px;
+}
+
+.settings-block {
+    flex-grow: 1;
+    height: 90px;
+}

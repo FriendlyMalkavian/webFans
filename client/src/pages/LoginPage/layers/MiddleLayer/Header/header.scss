@@ -1,0 +1,25 @@
+@import '../../../../../consts.scss';
+$prefer-background-texture: url('../../../../../assets/textures/CharcoalSmudgePrefer.webp');
+@keyframes moveParticleHeader { 100% { transform: translateX(100vw); } }
+
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: $header-footer-height;
+    border-bottom: 2px solid $theme-border-color;
+    background-color: $theme-footer-header-color;
+    background-image: $prefer-background-texture;
+}
+
+.particle-header-slide {
+    position: absolute;
+    width: 3px;
+    height: 4px;
+    background-color: $theme-border-particle;
+    bottom: -3px;
+    filter: blur(0.5px);
+    box-shadow: 0px -1px 3px 1px $theme-border-particle;
+    animation: moveParticleHeader 7s ease-in-out infinite alternate;
+    will-change: transform;
+}

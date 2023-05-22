@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Junge&display=swap');
+@import '../../../../../../consts.scss';
+
+.route-button-svg-left {
+    position: absolute;
+    inset: 0;
+    left: -1px;
+}
+
+.route-button-svg-right {
+    position: absolute;
+    inset: 0;
+    left: -3px;
+}
+
+.route-button-title {
+    display: flex;    
+    position: absolute;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    color: $theme-route-color;
+    font-size: 12px;
+    font-family: 'Junge', sans-serif;
+    margin-bottom: 2px;
+    color: $theme-border-particle;
+}
+
+.route-button-svg-part {
+    fill: $theme-route-color
+}

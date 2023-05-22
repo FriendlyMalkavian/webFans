@@ -1,0 +1,20 @@
+.profile-settings-type-values {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+        'COVER_UPLOAD AVATAR_UPLOAD'
+        'PROFILE_USER_INPUTS PROFILE_USER_INPUTS'
+    ;
+}
+
+.drag-and-drop-image-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 200px;
+    height: 200px;
+    border: 1px dashed black;
+}

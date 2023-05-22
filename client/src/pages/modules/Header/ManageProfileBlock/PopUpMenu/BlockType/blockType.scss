@@ -1,0 +1,10 @@
+@import '../../../header.scss';
+.pop-up-menu-block {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+    width: 100%;
+    border: none;
+    color: $theme-hover;
+    padding: 10px 10px 10px 10px;
+}

@@ -1,0 +1,62 @@
+class CONFIG {
+    PORT = 3001;
+
+    DB_CONFIG = {
+        HOST: 'localhost',
+        PORT: 5432,
+        NAME: 'webfans',
+        USER: 'postgres',
+        PASS: 'root'
+    }
+
+    SOCKETS = {
+        /** user **/
+        REGISTRATION: 'REGISTRATION',
+        LOGIN: 'LOGIN',
+        LOGOUT: 'LOGOUT',
+        AUTO_LOGIN: 'AUTO_LOGIN',
+        DELETE_USER: 'DELETE_USER',
+        /** chat **/
+        SEND_MESSAGE: 'SEND_MESSAGE',
+        NEW_MESSAGE: 'NEW_MESSAGE',
+        GET_CACHED_MESSAGES: 'GET_CACHED_MESSAGES',
+        GET_STORAGE_MESSAGES: 'GET_STORAGE_MESSAGES',
+        EDIT_MESSAGE: 'EDIT_MESSAGE',
+        GET_EDITED_MESSAGE: 'GET_EDITED_MESSAGE',
+        GET_LAST_PRIVATE_MESSAGES: 'GET_LAST_PRIVATE_MESSAGES',
+        JOIN_PRIVATE_ROOM: 'JOIN_PRIVATE_ROOM',
+        GET_STORAGE_PRIVATE_MESSAGES: 'GET_STORAGE_PRIVATE_MESSAGES',
+        /**  publication  **/
+        ADD_PUBLICATION: 'ADD_PUBLICATION',
+        EDIT_PUBLICATION: 'EDIT_PUBLICATION',
+        DELETE_PUBLICATION: 'DELETE_PUBLICATION',
+        ADD_LIKE: 'ADD_LIKE',
+        REMOVE_LIKE: 'REMOVE_LIKE',
+        GET_USER_PUBLICATIONS: 'GET_USER_PUBLICATIONS',
+        GET_PUBLICATION: 'GET_PUBLICATION',
+        GET_LIKED_USER_PUBLICATIONS: 'GET_LIKED_USER_PUBLICATIONS',
+        ADD_COMMENT: 'ADD_COMMENT',
+        EDIT_COMMENT: 'ADD_COMMENT',
+        DELETE_COMMENT: 'ADD_COMMENT', 
+    }
+
+    MEDIATOR = {
+        EVENTS: {
+            ON_USER_LOGOUT: 'ON_USER_LOGOUT',
+            ON_DATABASE_INIT: 'ON_DATABASE_INIT' 
+        },
+        TRIGGERS: {
+            /**  users  **/
+            INNER_GET_USER: 'INNER_GET_USER',
+            INNER_GET_USERS: 'INNER_GET_USERS',
+            /**  chat  **/
+            GET_MESSAGES_HANDLER: 'GET_MESSAGES_HANDLER',
+            SEND_PRIVATE_MESSAGE_HANDLER: 'SEND_PRIVATE_MESSAGE_HANDLER',
+            SEND_PUBLIC_MESSAGE_HANDLER: 'SEND_PUBLIC_MESSAGE_HANDLER',
+            /**  files  **/
+            RECORD_USER_FILE: 'RECORD_USER_FILE',
+        }
+    }
+}
+
+module.exports = new CONFIG();

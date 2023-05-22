@@ -1,0 +1,51 @@
+@import '../header.scss';
+
+.input-serach-wrapper {
+    position: relative;
+    width: 90%;
+    height: 60%;
+    user-select: none;
+    grid-area: SEARCH_BAR;
+
+    &:hover {
+        > .serach-content-input {
+            border-color: $theme-text-color;
+            transition: $transition-effect;
+        }
+        .magnifier {
+            stroke: $theme-text-color;
+            transition: $transition-effect;
+        }
+    }
+    &:focus-within {
+        > .serach-content-input {
+            border-color: $theme-border-color;
+            transition: $transition-effect;
+        }
+        .magnifier {
+            stroke: $theme-border-color;
+            transition: $transition-effect;
+        }
+    }
+}
+
+.serach-content-input {
+    position: relative;
+    border: none;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    transition: $transition-effect;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: $theme-dark-hover;
+    color: $theme-text-color;
+
+    font-size: 13px;
+    font-family: 'Laila', sans-serif;
+
+    padding: 5px 5px 5px 32px;
+
+    outline: none;
+}

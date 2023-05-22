@@ -1,0 +1,63 @@
+@import '../../../../consts.scss';
+.profile-image {
+    position: relative;
+    grid-area: B;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+        'T1 IMG'
+        'T2 IMG'
+    ;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    font-family: 'Laila', sans-serif;
+}
+
+.settings-profile-image-wrapper {
+    position: relative;
+    justify-self: center;
+    width: 44%;
+    padding: 22% 0px;
+    grid-area: IMG;
+    border-radius: 50%;
+}
+
+.user-options-mini-avatar-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100px;
+    height: 100px;
+    object-fit:cover;
+    border-radius: 50%;
+}
+
+.sceleton-settings-page-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #0a0a0a;
+}
+
+.settings-profile-name {
+    align-self: flex-end;
+    justify-self: right;
+    font-size: 15px;
+    color: $theme-text-color;
+}
+
+.settings-user-name {
+    align-self: flex-start;
+    justify-self: right;
+    font-size: 25px;
+    color: $theme-text-color;
+}

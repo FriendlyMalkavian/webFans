@@ -1,0 +1,85 @@
+@import '../../../../../../consts.scss';
+
+.drag-and-drop-wrapper {
+    justify-self: center;
+    align-self:flex-start;
+    width: 70%;
+    height: 30%;
+    border: 1px solid #80808060;
+    border-radius: 2px;
+
+    user-select: none;
+    background-color: #00000040;
+    cursor: pointer;
+
+    transition: $transition-effect;
+
+    &:hover {
+        transition: $transition-effect;
+        .drag-and-drop-input-label {
+            transition: $transition-effect;
+            border: 1px dashed #80808060;
+        }
+        .upload-icon {
+            > path {
+                fill: $theme-border-particle;
+            }
+        }
+        border: 1px dashed $theme-border-color;
+    }
+}
+
+.drag-and-drop-avatar-wrapper {
+    grid-area: AVATAR_UPLOAD;
+}
+
+.drag-and-drop-cover-wrapper {
+    grid-area: COVER_UPLOAD;
+}
+
+.drag-and-drop-input {
+    position: absolute;
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    z-index: -1;
+}
+
+.fake-input-file-button {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-icon {
+    position: absolute;
+    left: 23%;
+    width: 9px;
+    height: 9px;
+    > path {
+        fill: $theme-border-color;
+    }
+}
+
+.drag-and-drop-input-label {
+    position: relative;
+    height: 65%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #80808060;
+
+    color: $theme-text-color;
+    font-family: 'Laila', sans-serif;
+    font-size: 13px;
+    letter-spacing: .6px;
+
+    outline: none;
+    cursor: pointer;
+}

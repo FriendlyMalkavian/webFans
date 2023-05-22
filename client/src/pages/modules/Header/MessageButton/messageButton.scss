@@ -1,0 +1,12 @@
+.message-button {
+    position: relative;
+    grid-area: MESSAGE_BUTTON;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+}

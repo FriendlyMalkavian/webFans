@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@400&display=swap');
+@import '../../../../consts.scss';
+
+.messages-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 80%;
+    flex-grow: 1;
+    flex-flow: column-reverse;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $theme-scrollbar-thumb;
+        border-radius: 3px;
+        border: none;
+    }
+    &::-webkit-scrollbar-track {
+        background: $theme-scrollbar-thumb;
+    }
+}
+
+.message-item {
+    padding: 0px 75% 0px 20px;
+    margin-bottom: 20px;
+}
+
+.message-block {
+    border-radius: 5px;
+    background-color: $theme-dark-hover;
+    width: auto;
+    height: auto;
+}
+
+.message-line {
+    text-align: left;
+    padding: 10px;
+    background-color: transparent;
+
+    color: $theme-text-color;
+    font-size: 15px;
+    font-family: 'Laila', sans-serif;
+
+    word-break: break-word;
+    outline: none;
+    overflow: hidden;
+    white-space: pre;
+}
+
+.your-message {
+    text-align: right;
+    padding: 0px 20px 0px 75%;
+}

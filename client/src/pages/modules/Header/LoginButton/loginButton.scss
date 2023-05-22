@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@500&display=swap');
+.suggest-to-login-button-wrapper {
+    position: relative;
+    grid-area: LOGIN_BUTTONS;
+    width: 70%;
+    height: 50%;
+    &:hover {
+        .route-to-login-particle {
+            width: 20px;
+            border-radius: 25%;
+            transition: .4s ease;
+        }
+    }
+}
+
+.route-to-login-particle {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translate3d(0, -50%, 0);
+    width: 4px;
+    height: 4px;
+    background-color: black;
+    transition: .4s ease;
+    border-radius: 50%;
+}
+
+.header-route-to-login-page-button {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+    font-family: 'Laila', sans-serif;
+    text-align: left;
+    padding: 3px 0px 0px 10px;
+    letter-spacing: 1px;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+}

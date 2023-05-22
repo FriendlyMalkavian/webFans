@@ -1,0 +1,37 @@
+@import '../../../../../consts.scss';
+
+.setting-button-wrapper {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    margin: 10px 0px;
+}
+
+.setting-button-cover {
+    position: absolute;
+    inset: 0;
+    width: 0px;
+    border: none;
+    color: $theme-gray-elem;
+    background-color: $theme-dim-hover;
+    height: 100%;
+    z-index: -1;
+}
+
+.setting-button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding-left: 25px;
+    text-align: left;
+    
+    font-family: 'Laila', sans-serif;
+    color: $theme-text-color;
+
+    border-left: 1px solid white;
+
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    background-color: transparent;
+}

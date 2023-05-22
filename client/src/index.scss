@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    //login-theme
+    --theme-border-color-login-page: #b9841a;
+    --theme-border-particle-login-page: #FFCB64;
+    --theme-footer-header-color-login-page: #0e0e11;
+    --theme-layer-back-color-login-page: #1D1D1F;
+    --theme-layer-front-color-login-page: #000;
+    --theme-route-color-login-page: #0D0D0D;
+    --theme-text-color-login-page: #c7c7c7;
+    //login-light
+    --light-border-login-page: #ff0055;
+    --light-particle-login-page: #d10034;
+    --light-header-login-page: #ffffff;
+    --light-back-layer-login-page: #ffffff;
+    --light-front-layer-login-page: #ffffff;
+    --light-route-color-login-page: #f0f0f0;
+    --light-text-color-login-page: #222222;
+    //login-dark
+    --dark-border-login-page: #b9841a;
+    --dark-particle-login-page: #FFCB64;
+    --dark-header-login-page: #0e0e11;
+    --dark-back-layer-login-page: #1D1D1F;
+    --dark-front-layer-login-page: #000;
+    --dark-route-color-login-page: #0D0D0D;
+    --dark-text-color-login-page: #d8d8d8;
+    //main-theme
+    --theme-scrollbar-thumb: #494949;
+    --theme-scrollbar-track: #333;
+    --theme-main-background-color: #1d1d1f;
+    --theme-text-color: #bdbdbd;
+    --theme-header-color: #1f1f1f;
+    --theme-bright-hover: #b4b4b4;
+    --theme-hover: #919191;
+    --theme-gray-elem: #777;
+    --theme-dim-border: #5a5a5a;
+    --theme-dim-hover: #3f3f3f;
+    --theme-almost-black-white-color: #0f0f0f;
+    --theme-dark-elem: #121213;
+    --theme-dark-hover: #2e2e2e;
+    //main-dark
+    --dark-scrollbar-thumb: #494949;
+    --dark-scrollbar-track: #333;
+    --dark-main-background-color: #1d1d1f;
+    --dark-text-color: #bdbdbd;
+    --dark-header-color: #1f1f1f;
+    --dark-bright-hover: #b4b4b4;
+    --dark-hover: #919191;
+    --dark-gray-elem: #777;
+    --dark-dim-border: #5a5a5a;
+    --dark-dim-hover: #3f3f3f;
+    --dark-almost-black-white-color: #0f0f0f;
+    --dark-dark-elem: #121213;
+    --dark-dark-hover: #2e2e2e;
+}
+
+.light {
+    --theme-border-color-login-page: var(--light-border-login-page);
+    --theme-border-particle-login-page: var(--light-particle-login-page);
+    --theme-footer-header-color-login-page: var(--light-header-login-page);
+    --theme-layer-back-color-login-page: var(--light-back-layer-login-page);
+    --theme-layer-front-color-login-page: var(--light-front-layer-login-page);
+    --theme-route-color-login-page: var(--light-route-color-login-page);
+    --theme-text-color-login-page: var(--light-text-color-login-page);
+}
+
+.dark {
+    --theme-border-color-login-page: var(--dark-border-login-page);
+    --theme-border-particle-login-page: var(--dark-particle-login-page);
+    --theme-footer-header-color-login-page: var(--dark-header-login-page);
+    --theme-layer-back-color-login-page: var(--dark-back-layer-login-page);
+    --theme-layer-front-color-login-page: var(--dark-front-layer-login-page);
+    --theme-text-color-login-page: var(--dark-text-color-login-page);
+    //main
+    --theme-scrollbar-thumb: var(--dark-scrollbar-thumb);
+    --theme-scrollbar-track: var(--dark-scrollbar-track);
+    --theme-main-background-color: var(--dark-main-background-color);
+    --theme-text-color: var(--dark-text-color);
+    --theme-header-color: var(--dark-header-color);
+    --theme-bright-hover: var(--dark-bright-hover);
+    --theme-hover: var(--dark-bright-hover);
+    --theme-gray-elem: var(--dark-gray-elem);
+    --theme-dim-border: var(--dark-dim-border);
+    --theme-dim-hover: var(--dark-dim-hover);
+    --theme-almost-black-white-color: var(--dark-almost-black-white-color);
+    --theme-dark-elem: var(--dark-dark-elem);
+    --theme-dark-hover: var(--dark-dark-hover);
+}
+
+body {
+    background-color: var(--theme-main-background-color);
+    width: 100%;
+    min-height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #494949;
+    border-radius: 3px;
+    border: none;
+}
+body::-webkit-scrollbar-track {
+    background: #333;
+}

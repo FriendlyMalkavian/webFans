@@ -1,0 +1,15 @@
+@import '../../../../consts.scss';
+$prefer-background-texture: url('../../../../assets/textures/PaperTexture.webp');
+
+.layer-back {
+    position: absolute;
+    inset: 0;
+    width: 200%;
+    height: 100vh;
+    left: -80%;
+    background-color: $theme-layer-back-color;
+    background-image: $prefer-background-texture;
+    z-index: -1;
+    will-change: transform;
+    overflow: hidden;
+}

@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Junge&display=swap');
+@import '../../../../../consts.scss';
+@keyframes showWarning {
+    0% { border: 1px solid red; }
+    15% { border: 1px solid $theme-border-color; }
+    25% { border: 1px solid red; }
+    50% { border: 1px solid $theme-border-color; }
+    75% { border: 1px solid red; }
+    100% { border: 1px solid $theme-border-color; }
+}
+@keyframes coverInput {
+    50%{ width: 100%; }
+    100% { width: 0; }
+}
+@keyframes dropInfoMessage {
+    7% { top: -5%; }
+    15% { top: -17%; }
+    20% { top: -5% }
+    25% { top: -7%; }
+    30% { top: -5%; }
+    50% { top: -5%; }
+    100% { top: -100%; }
+}
+
+.info-submit-block {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+}
+
+.info-message {
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    min-height: 30px;
+    color: $theme-text-color-login-page;
+    background-color: transparent;
+    font-size: 18px;
+    margin: 10px 0px;
+    font-family: 'Junge', serif;
+    outline: none;
+    border: none;
+    user-select: none;
+    text-align: center;
+}
+
+.show-info-message {
+    animation: dropInfoMessage 1.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.inputs-form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+.input-wrapper {
+    position: relative;
+    height: 28px;
+    width: 70%;
+    margin: 15px 0 10px 0;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.input-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    background-color: $theme-border-particle;
+    width: 0px;
+    height: 100%;
+}
+
+.registration-input-cover {
+    animation: coverInput 0.5s none 0s reverse;
+}
+.login-input-cover {
+    animation: coverInput 1s ease 0s reverse;
+}
+
+.non-valid-input-value {
+    animation: showWarning .5s none 0s infinite;
+}
+
+.user-input {
+    width: 100%;
+    height: 100%;
+    color: $theme-text-color-login-page;
+    background-color: $theme-route-color;
+    border: 1px solid $theme-border-color;
+    padding: 0 5px 0 5px;
+    font-size: 14px;
+    font-family: 'Junge', serif;
+    outline: none;
+}
+
+.user-input:focus-within {
+    border: 1px solid $theme-border-particle;
+}
+
+.login-buttons-block {
+    position: relative;
+    height: 30%;
+    width: 100%;
+}
+
+.login-button, .route-to-sign-in, .route-to-sign-up {
+    position: absolute;
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-button {
+    position: relative;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    width: 40%;
+    height: 25px;
+    border: none;
+    background-color: $theme-route-color;
+
+    &:hover {
+        .login-button-back {
+            width: 100%;
+            transition: .5s;
+        }
+        .border-top, .border-bottom {
+            width: 100%;
+            transition: .5s;
+        }
+        .border-left, .border-right {
+            opacity: 0;
+            transition: .5s;
+        }
+    }
+}
+
+.login-button-border {
+    position: absolute;
+    background-color: $theme-border-color;
+    z-index: 2;
+}
+.border-top, .border-bottom {
+    height: 1px;
+    width: 0;
+    transition: .5s;
+}
+.border-top {
+    top: 0;
+}
+.border-bottom {
+    bottom: 0;
+}
+
+.border-left, .border-right {
+    opacity: 1;
+    height: 100%;
+    width: 1px;
+    transition: opacity .5s;
+}
+.border-left {
+    top: 0;
+    left: 0;
+}
+.border-right {
+    top: 0;
+    right: 0;
+}
+
+.login-button-back {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 0;
+    background-color: $theme-text-color-login-page;
+    transition: .5s;
+}
+
+.login-button-title {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-family: 'Junge', serif;
+    color: $theme-text-color-login-page;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: 3;
+    transition: .5s;
+}
+.login-button-title:hover {
+    color: $theme-route-color;
+    transition: ease-out 0.5s;
+}
+.login-button-title:active {
+    background-color: $theme-border-particle;
+    transition: 0s;
+}
+
+.route-to-sign-up, .route-to-sign-in {
+    top: 60%;
+    width: 80px;
+    height: 25px;
+    font-size: 12px;
+    border: none;
+    background-color: transparent;
+    z-index: 3;
+
+    &:hover {
+        .route-button-title {
+            text-shadow: 0px 0px 5px;
+        }
+    }
+}
+
+.route-to-sign-up:active, .route-to-sign-in:active {
+    .route-button-svg-part {
+        fill: black;
+        transition: 0.1s;
+    }
+}
+
+.route-to-sign-up {
+    right: -10px;
+}
+.route-to-sign-in {
+    left: -10px;
+}

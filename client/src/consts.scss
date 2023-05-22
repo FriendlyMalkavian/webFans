@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300&display=swap');
+
+$header-footer-height: clamp(70px, 15%, 170px);
+$transition-effect: 0.15s ease-in;
+$font: 'Laila', sans-serif;
+
+$theme-border-color: var(--theme-border-color-login-page);
+$theme-border-particle: var(--theme-border-particle-login-page);
+$theme-footer-header-color: var(--theme-footer-header-color-login-page);
+$theme-layer-back-color: var(--theme-layer-back-color-login-page);
+$theme-layer-front-color: var(--theme-layer-front-color-login-page);
+$theme-route-color: var(--theme-route-color-login-page);
+$theme-text-color-login-page: var(--theme-text-color-login-page);
+
+$theme-scrollbar-thumb: var(--theme-scrollbar-thumb);
+$theme-scrollbar-track: var(--theme-scrollbar-track);
+$theme-main-background-color: var(--theme-main-background-color);
+$theme-text-color: var(--theme-text-color);
+$theme-header-color: var(--theme-header-color);
+$theme-bright-hover: var(--theme-bright-hover);
+$theme-hover: var(--theme-hover);
+$theme-gray-elem: var(--theme-gray-elem);
+$theme-dim-border: var(--theme-dim-border);
+$theme-dim-hover: var(--theme-dim-hover);
+$theme-almost-black-white-color: var(--theme-almost-black-white-color);
+$theme-dark-elem: var(--theme-dark-elem);
+$theme-dark-hover: var(--theme-dark-hover);

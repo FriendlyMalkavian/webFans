@@ -1,0 +1,17 @@
+@import '../../../consts.scss';
+.messanger-block {
+    position: relative;
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+    height: calc(100% - 50px);
+}
+
+.chat-wrapper {
+    position: relative;
+    display: flex;
+    width: 80%;
+    overflow-x: hidden;
+    flex-flow: column;
+    height: 100%
+}

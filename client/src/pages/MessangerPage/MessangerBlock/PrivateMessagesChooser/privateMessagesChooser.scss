@@ -1,0 +1,30 @@
+@import '../../../../consts.scss';
+.private-messages-choose-wrapper {
+    width: 20%;
+    position: relative;
+    display: flex;
+    height: 100%;
+    background-color: $theme-dark-elem;
+    border-right: 1px solid $theme-dim-border;
+    flex-direction: column;
+}
+
+.private-message-wrapper {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    border-bottom: 1px solid white;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.private-name {
+    height: 30%;
+    color: grey;
+    align-self: center;
+}
+
+.private-message {
+    color: white;
+    padding-left: 10px;
+}
