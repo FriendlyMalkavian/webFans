@@ -33,7 +33,7 @@ class DB {
     /************/
 
     async recordUser({ login, password, name, guid }) {
-        const user = await this.orm.select('users', 'login', { login });                                     // chec if user alredy exist
+        const user = await this.orm.select('users', 'login', { login });                                     // check if user alredy exist
         if(!user[0]) {
             const [ { id } ] = await this.orm.insert('users', { login, password, name, guid }, [ 'id' ]);    // create new user
             if(id) { return true };
@@ -42,27 +42,15 @@ class DB {
     } 
 
     async login(login, password, token) {
-        const user = (await this.orm.update('users', { token }, { login, password }, ['*']))[0];          // update token and return user data
-        if(user) {
-            const userOptions = (await this.orm.select('options', 'avatar_title, cover_title', { user_id: user.id }))[0]; // get user optonal data
-            return { ...user, ...userOptions };
-        }
+        return await this.orm.update('users', { token }, { login, password }, ['*']);          // update token and return user data
     }
 
     logout(guid) {
         return this.orm.update('users', { token: null }, { guid });
     }
 
-    async getUserByGuid(guid) {
-        const query = `
-            SELECT users.*, o.avatar_title, o.cover_title
-            FROM users, options AS o
-            WHERE users.id = o.user_id AND guid = $1
-        `;
-        let response = null;
-        try { response = (await this.db.query(query, [guid]))?.rows; } 
-        catch (e) { console.log('error:', e) };
-        return response;
+    getUserByGuid(guid) {
+        return this.orm.select('users', '*', { guid });
     }
 
     /************/
@@ -100,29 +88,6 @@ class DB {
         try { response = (await this.db.query(query))?.rows; }
         catch (e) { console.log('error:', e) };
         return response;
-    }
-
-    async getLastPrivateMessages(id, limit = 10) {
-        //const query = `
-        //    SELECT max(m.id) AS id, m.message, m.sender_id, m.recipient_id, u.guid, u.name, o.avatar_title
-        //    FROM messages AS m, users AS u, options AS o
-        //    WHERE (sender_id=${id} OR recipient_id=${id}) AND (m.recipient_id = u.id AND u.id <> ${id} OR m.sender_id = u.id) AND m.recipient_id IS NOT NULL
-        //    GROUP BY m.recipient_id + m.sender_id
-        //    ORDER BY id DESC
-        //    LIMIT ${limit}
-        //`;
-        //let response = null;
-        //try { response = await this.db.query(query); }
-        //catch (e) { console.log('error:', e) };
-        //return response;
-    }
-
-    /************/
-    /**  file  **/
-    /************/
-
-    async recordImageTitle(userId, type, title) {
-        return this.orm.update('options', { [`${type}Title`]: title }, { userId });
     }
 
     /****************/

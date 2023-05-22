@@ -32,7 +32,7 @@ class User extends BaseEntity {
             const hash = this.common.encryptData({ login, password: originPassword }); // get hashed token and random number
             const user = await this.db.login(login, originPassword, hash.token);
             if(user) {
-                this._recordUserInfo(user);
+                this._recordUserInfo(user[0]);
                 return { 
                     random: hash.random, 
                     user: this._innerGet()
@@ -43,10 +43,11 @@ class User extends BaseEntity {
     }
 
     async autoLogin({ hash, random, guid }) {
-        const user = (await this.db.getUserByGuid(guid))[0];
+        const user = await this.db.getUserByGuid(guid);
         if(user) {
-            this._recordUserInfo(user);
+            this._recordUserInfo(user[0]);
             const checkUser = this.get({ hash, random, params: { guid } });
+            console.log(checkUser);
             if(checkUser) { return checkUser };
         }
         return null;

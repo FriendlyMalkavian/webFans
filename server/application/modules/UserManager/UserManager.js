@@ -59,7 +59,8 @@ class UserManager extends BaseManager {
             db: this.db,
             common: this.common
         });
-        if(await newUser.registration(data)) {
+        const isAdded = await newUser.registration(data);
+        if(isAdded) {
             socket.emit(this.SOCKETS.REGISTRATION, true);
             return;
         }

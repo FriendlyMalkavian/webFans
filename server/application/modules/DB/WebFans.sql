@@ -20,6 +20,20 @@ CREATE INDEX "block_list_user_id_index" ON
     "block_list"("user_id");
 ALTER TABLE
     "block_list" ADD PRIMARY KEY("id");
+CREATE TABLE "messages"(
+    "id" bigserial NOT NULL,
+    "message" TEXT NOT NULL,
+    "sender_id" BIGINT NOT NULL,
+    "recipient_id" BIGINT NULL,
+    "date" BIGINT NOT NULL,
+    "status" BOOLEAN NOT NULL DEFAULT '0'
+);
+CREATE INDEX "messages_sender_id_index" ON
+    "messages"("sender_id");
+CREATE INDEX "messages_recipient_id_index" ON
+    "messages"("recipient_id");
+ALTER TABLE
+    "messages" ADD PRIMARY KEY("id");
 CREATE TABLE "notifications"(
     "id" bigserial NOT NULL,
     "publication_id" BIGINT NOT NULL,
@@ -132,6 +146,8 @@ ALTER TABLE
     "likes" ADD CONSTRAINT "likes_publication_id_foreign" FOREIGN KEY("publication_id") REFERENCES "publications"("id");
 ALTER TABLE
     "block_list" ADD CONSTRAINT "block_list_blocked_post_id_foreign" FOREIGN KEY("blocked_post_id") REFERENCES "publications"("id");
+ALTER TABLE
+    "messages" ADD CONSTRAINT "messages_sender_id_foreign" FOREIGN KEY("sender_id") REFERENCES "users"("id");
 ALTER TABLE
     "publications" ADD CONSTRAINT "publications_publisher_id_foreign" FOREIGN KEY("publisher_id") REFERENCES "users"("id");
 ALTER TABLE
