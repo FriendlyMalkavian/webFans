@@ -52,16 +52,16 @@ class ChatModule extends BaseModule {
             this.messages = response;                               // cache messages on module initializstion
             this.mediator.call(this.EVENTS.ON_CACHE_MESSAGES_RECIVED, this.messages);
         });
-        socket.on(NEW_MESSAGE, (response: Message) => {
-            if(!response) { return };
-            this.messages[response.id] = response;                  // push new message in cache
-            this.mediator.call(this.EVENTS.ON_NEW_MESSAGE, { ...this.messages });
-        });
-        socket.on(GET_EDITED_MESSAGE, (response: Message) => {
-            if(!response) { return };
-            this.messages[response.id] = response;
-            this.mediator.call(this.EVENTS.ON_NEW_MESSAGE, { ...this.messages });
-        });
+        //socket.on(NEW_MESSAGE, (response: Message) => {
+        //    if(!response) { return };
+        //    this.messages[response.id] = response;                  // push new message in cache
+        //    this.mediator.call(this.EVENTS.ON_NEW_MESSAGE, { ...this.messages });
+        //});
+        //socket.on(GET_EDITED_MESSAGE, (response: Message) => {
+        //    if(!response) { return };
+        //    this.messages[response.id] = response;
+        //    this.mediator.call(this.EVENTS.ON_NEW_MESSAGE, { ...this.messages });
+        //});
     }
 
     public getMessages() {
@@ -93,13 +93,13 @@ class ChatModule extends BaseModule {
     }
 
     public async getNewBatchOfMessages(offSet: number) {
-        const recivedMessages = await this.server.getNewMessages(offSet);
-        if(recivedMessages) {
-            this.messages = { ...this.messages, ...recivedMessages };
-            if(this.messages[1]) { return null };
-            return this.messages;
-        }
-        return null;
+        //const recivedMessages = await this.server.getNewMessages(offSet);
+        //if(recivedMessages) {
+        //    this.messages = { ...this.messages, ...recivedMessages };
+        //    if(this.messages[1]) { return null };
+        //    return this.messages;
+        //}
+        //return null;
     }
 
     public pullMessageToEdit(messageId: number) {
@@ -110,13 +110,13 @@ class ChatModule extends BaseModule {
     }
 
     private async recievePrivateMessages() {
-        const messages = await this.server.getLastPrivateMessages();
-        if(messages) {
-            for(let i = 0; i < messages.length; i++) {
-                this.privateMessages[i] = { [messages[i].id]: messages[i] }
-            }
-            this.mediator.call(this.EVENTS.ON_PRIVATE_MESSAGES_RECIVED, { ...this.privateMessages });
-        }
+        //const messages = await this.server.getLastPrivateMessages();
+        //if(messages) {
+        //    for(let i = 0; i < messages.length; i++) {
+        //        this.privateMessages[i] = { [messages[i].id]: messages[i] }
+        //    }
+        //    this.mediator.call(this.EVENTS.ON_PRIVATE_MESSAGES_RECIVED, { ...this.privateMessages });
+        //}
     }
 
     private optimizeString(str: string) {

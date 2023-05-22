@@ -34,11 +34,11 @@ const MessagesWrapper: FC = () => {
         const height = messageItem.current?.clientHeight || 0;
         if(scrollTop <= -(height * messagesArr.length - 15) && scrolling) {
             setScrolling(false);
-            const recivedMessages = await chatModule.getNewBatchOfMessages(messagesArr.length);
-            if(recivedMessages) {
-                setMessages(recivedMessages);
-                setScrolling(true);
-            }
+            //const recivedMessages = await chatModule.getNewBatchOfMessages(messagesArr.length);
+            //if(recivedMessages) {
+            //    setMessages(recivedMessages);
+            //    setScrolling(true);
+            //}
         }
     }
 

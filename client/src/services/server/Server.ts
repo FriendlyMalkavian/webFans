@@ -1,7 +1,7 @@
 import { User } from "../modules/UserModule/UserModule";
 import { Socket } from "socket.io-client";
 import { SocketType } from '../../config';
-import { IMessages, Message, PrivateMessage } from "../modules/ChatModule/ChatModule";
+import { Message } from "../modules/ChatModule/ChatModule";
 import Security from "../security/Security";
 
 type EncryptedData = {
@@ -20,10 +20,8 @@ export interface IServer {
     logout(): Promise<boolean>;
     autoLogin(): Promise<User|null>;
     sendPublicMessage(message: string): Promise<boolean>;
-    getNewMessages(offSet: number): Promise<IMessages>;
     editMessage(message: string, id: number): Promise<Message|null>;
     uploadImage(image: File, type: string): Promise<void>;
-    getLastPrivateMessages(): Promise<PrivateMessage[]|null>;
 }
 
 class Server implements IServer {
@@ -123,32 +121,11 @@ class Server implements IServer {
         });
     }
 
-    public async getNewMessages(offSet: number) {
-        const { hash, random } = this.getEncryptedData({ guid: this.guid, offSet });
-        this.socket.emit(this.SOCKET.GET_STORAGE_MESSAGES, { hash, random, guid: this.guid, offSet });
-        return new Promise<IMessages>((resolve) => {
-            this.socket.on(this.SOCKET.GET_STORAGE_MESSAGES, response => resolve(response));
-        });
-    }
-
-    public async getLastPrivateMessages() {
-        const { hash, random } = this.getEncryptedData({ guid: this.guid });
-        this.socket.emit(this.SOCKET.GET_LAST_PRIVATE_MESSAGES, { hash, random, guid: this.guid });
-        return new Promise<PrivateMessage[]|null>((resolve) => {
-            this.socket.on(this.SOCKET.GET_LAST_PRIVATE_MESSAGES, response => resolve(response));
-        });
-    }
-
     /****************/
     /****  FILE  ****/
     /****************/
 
     public async uploadImage(image: File, type:string) {
-        const method = (
-            type === 'avatar' ? 'uploadAvatar' : 
-            type === 'cover' ? 'uploadCover' : ''
-        );
-        const params = { guid: this.guid }
         //await this.formDataSend<UploadImageResponse>(method, params, image);
         setTimeout(() => {
             window.location.reload();
@@ -168,25 +145,6 @@ class Server implements IServer {
             // eslint-disable-next-line
           (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
         );
-    }
-
-    // change it
-    protected async formDataSend<T>(method: string, params: any, file:File) {
-    //    const paramsVal = this.getEncryptedData(params);
-    //    const formData = new FormData();
-    //    const paramsArr = Object.entries(paramsVal);
-    //    paramsArr.forEach((param) => {
-    //        formData.append(param[0], param[1]);
-    //        return;
-    //    });
-    //    formData.append('image', file);
-    //    const responce = await fetch(`/api/${method}`, {
-    //        method: 'POST',
-    //        body: formData
-    //    });
-    //    const answer = await responce.json();
-    //    return answer?.result === 'ok' ? answer?.data : null;
-    //    return new Promise(resolve => resolve(true))
     }
 }
 
