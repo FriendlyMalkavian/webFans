@@ -36,10 +36,7 @@ class DB {
         const user = await this.orm.select('users', 'login', { login });                                     // chec if user alredy exist
         if(!user[0]) {
             const [ { id } ] = await this.orm.insert('users', { login, password, name, guid }, [ 'id' ]);    // create new user
-            if(id) {
-                const isCreated = await this.orm.insert('options', { user_id: id });                         // create options for this user
-                if(isCreated) { return true };
-            }
+            if(id) { return true };
         }
         return null;
     } 
